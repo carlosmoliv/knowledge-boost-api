@@ -1,5 +1,4 @@
 import { UsersService } from "../users.service";
-import * as database from "../../../../config/database";
 import { AppError } from "../../../../utils/errors.utils";
 import { Role } from "../users.enums";
 
@@ -7,12 +6,7 @@ describe("Register User", () => {
   let usersService: UsersService;
 
   beforeAll(() => {
-    database.connect();
     usersService = new UsersService();
-  });
-
-  afterAll(() => {
-    database.disconnect();
   });
 
   it("should create a new user with the provided data", async () => {
